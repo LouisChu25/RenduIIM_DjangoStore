@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Liste de tous les produits</h1>
+    <div class="createbutton">
+        <a href="http://127.0.0.1:8000/create">Creer un nouveau produit</a>
+    </div>
+    <div class="main">
+ 
+        {% for data in dataset %}
+
+        <div class="card">
+            <h2>{{ data.title }}</h2>
+            <img src="{{data.image}}" alt="image du produit">
+                <a href="http://127.0.0.1:8000/{{data.id}}">Voir détails</a>
+                <a href="http://127.0.0.1:8000/edit/{{data.id}}">Modifier produit</a>
+                <a href="http://127.0.0.1:8000/delete/{{data.id}}">Supprimer</a>
+        </div>
+        {% endfor %}
+     
+    </div>
+</body>
+</html>
+
+<style>
+
+h1 {
+    text-align: center;
+}
+
+.card {
+    height: 50vh;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+
+.card h2 {
+    text-align: center;
+}
+
+.card img {
+    height: 50%;
+}
+
+
+.main {
+    display: flex;
+    gap: 5%;
+    flex-wrap: wrap;
+}
+
+.createbutton {
+    margin: auto;
+    text-align: center;
+    margin-bottom: 10vh;
+}
+
+.createbutton a {
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    text-align: center;
+    padding: 10px;
+    background-color: green;
+}
+</style>
